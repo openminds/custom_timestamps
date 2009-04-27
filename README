@@ -1,0 +1,15 @@
+CustomTimestamps
+================
+
+Some legacy databases have already defined their own created_at or updated_at fields. They can be easily filled in with ActiveRecord before_save filters, but changing this should be trivial. This plugin enables you to set your own column names for these timestamps
+
+Example
+=======
+
+class LegacyModel < ActiveRecord::Base
+  set_create_column :creation_time
+  set_update_column :change_time
+end
+
+
+Copyright (c) 2009 Jan De Poorter, released under the MIT license
