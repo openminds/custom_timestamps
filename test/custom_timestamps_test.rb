@@ -1,5 +1,6 @@
 require 'test_helper'
 require 'models/pirate'
+require 'models/ship'
 
 class CustomTimestampsTest < ActiveSupport::TestCase
   test "A pirate sets drunk_for_the_first_time_at when created" do
@@ -22,5 +23,14 @@ class CustomTimestampsTest < ActiveSupport::TestCase
     pirate.save!
     
     assert pirate.drunk_last_at > 1.day.ago
+  end
+  
+  test "Association saving still works" do
+    pirate = Pirate.new(:name => 'Colombus')
+    pirate.ships.build(:name => 'Pinta')
+    
+    pirate.save!
+    
+    assert !pirate.ships.any?(&:new_record?)
   end
 end

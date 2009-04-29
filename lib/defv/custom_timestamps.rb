@@ -29,7 +29,7 @@ module Defv
           write_attribute(create_column, t) if create_column && respond_to?(create_column) && send(create_column).nil?
           write_attribute(update_column, t) if update_column && respond_to?(update_column) && send(update_column).nil?
         end
-        create_without_timestamps
+        create_without_extended_timestamps
       end
 
       def update_with_extended_timestamps(*args) #:nodoc:
@@ -38,7 +38,7 @@ module Defv
 
           write_attribute(update_column, t) if respond_to?(update_column)
         end
-        update_without_timestamps(*args)
+        update_without_extended_timestamps(*args)
       end
     end
   end

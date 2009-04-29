@@ -4,4 +4,8 @@ ActiveRecord::Schema.define do
     t.column "drunk_for_the_first_time_at", :datetime
     t.column "drunk_last_at", :datetime
   end
+  
+  create_table "ships", :force => true do |t|
+    t.column "name", :text
+  end
 end
