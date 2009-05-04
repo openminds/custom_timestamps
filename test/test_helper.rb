@@ -8,7 +8,7 @@ require 'init'
 
 ActiveRecord::Base.establish_connection({
   :adapter => 'sqlite3',
-  :dbfile => 'test.db'
+  :dbfile => ':memory:'
 })
 
 ActiveRecord::Base.silence do
